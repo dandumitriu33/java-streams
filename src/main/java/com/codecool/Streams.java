@@ -14,6 +14,8 @@ public class Streams {
 
         String[] a1 = {"one", "two", "three"};
         Stream<String> s1 = Arrays.stream(a1);
+        System.out.println("Printing s1:");
+        s1.forEach(s -> System.out.println(s));
 
         /*
          * Create a stream containing the Strings "one" , "two" and "three"
@@ -21,6 +23,8 @@ public class Streams {
          */
 
         Stream<String> s2 = Stream.of("one", "two", "three");
+        System.out.println("Printing s2:");
+        s2.forEach(s -> System.out.println(s));
 
         /*
          * Create a stream using a stream builder.
@@ -41,6 +45,8 @@ public class Streams {
 
         List<String> l1 =
                 s3.collect(Collectors.toList());
+        System.out.println("Printing l1:");
+        System.out.println(l1);
 
         /*
          * Streams can be infinite.  We obviously cannot create such a
@@ -65,6 +71,9 @@ public class Streams {
          */
 
         Stream<Integer> s5 = s4.limit(10);
+        System.out.println("Printing s5:");
+        s5.forEach(s -> System.out.println(s));
+
 
         /*
          * Create a stream containing the elements of the Fibonacci
@@ -74,6 +83,8 @@ public class Streams {
          */
 
 //        Supplier<Integer> fibSupp = new Fibonacci();
-//        Stream<Integer> s6 = ;
+//        Stream<Integer> s6 = Stream.iterate(fibSupp).limit(10);
+//        System.out.println("Printing s6:");
+//        s6.forEach(s -> System.out.println(s));
     }
 }
