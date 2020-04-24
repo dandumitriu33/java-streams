@@ -82,9 +82,10 @@ public class Streams {
          * HINT: You will need to create a new class for this.
          */
 
-//        Supplier<Integer> fibSupp = new Fibonacci();
+//        Supplier<Integer> fibSupp = new Fibonacci(10);
 //        Stream<Integer> s6 = Stream.iterate(fibSupp).limit(10);
 //        System.out.println("Printing s6:");
 //        s6.forEach(s -> System.out.println(s));
+        Fibonacci.Fibonacci(10).forEach(System.out::println);
     }
 }

@@ -1,13 +1,28 @@
 package com.codecool;
 
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Fibonacci {
+public class Fibonacci implements Supplier<Integer> {
 
-    public Stream<int[]> Fibonacci(){
-        return Stream.iterate(new int[]{0, 1}, i -> new int[]{i[1], i[0] + i[1]});
-//                .limit(10)
-//                .map(i -> i[0])
-//                .collect(Collectors.toList());
+    private int previous = 1;
+    private int current = 2;
+    private int next;
+
+    @Override
+    public Integer get() {
+        next = current + previous;
+        int temp = previous;
+        previous = current;
+        current = next;
+        return temp;
     }
+
+    public static List<Integer> Fibonacci(int number) {
+        return Stream.generate(new Fibonacci()).limit(number).collect(Collectors.toList());
+    }
+
+
 }
